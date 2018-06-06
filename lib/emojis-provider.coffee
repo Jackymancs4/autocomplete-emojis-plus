@@ -7,7 +7,7 @@ module.exports =
   selector: '.source.gfm, .text.md, .text.restructuredtext, .text.html, .text.slim, .text.plain, .text.git-commit, .comment, .string, .source.emojicode'
 
   wordRegex: /::?[\w\d_\+-]+$/
-  emojiFolder: 'atom://autocomplete-emojis/node_modules/emoji-images/pngs'
+  emojiFolder: 'atom://autocomplete-emojis-plus/node_modules/emoji-images/pngs'
   properties: {}
   keys: []
 
@@ -28,11 +28,11 @@ module.exports =
       prefix = prefix.slice(1)
 
     unicodeEmojis = []
-    if atom.config.get('autocomplete-emojis.enableUnicodeEmojis') && not isMarkdownEmojiOnly
+    if atom.config.get('autocomplete-emojis-plus.enableUnicodeEmojis') && not isMarkdownEmojiOnly
       unicodeEmojis = @getUnicodeEmojiSuggestions(prefix)
 
     markdownEmojis = []
-    if atom.config.get('autocomplete-emojis.enableMarkdownEmojis')
+    if atom.config.get('autocomplete-emojis-plus.enableMarkdownEmojis')
       markdownEmojis = @getMarkdownEmojiSuggestions(prefix, replacementPrefix)
 
     return unicodeEmojis.concat(markdownEmojis)

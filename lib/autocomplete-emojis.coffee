@@ -13,7 +13,7 @@ module.exports =
     provider.loadProperties()
 
     atom.commands.add 'atom-workspace',
-      'autocomplete-emojis:show-cheat-sheet': ->
+      'autocomplete-emojis-plus:show-cheat-sheet': ->
         require('./emoji-cheat-sheet').show()
 
   getProvider: -> provider
