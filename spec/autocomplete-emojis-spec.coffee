@@ -21,18 +21,18 @@ describe "Emojis autocompletions", ->
     provider.getSuggestions(request)
 
   beforeEach ->
-    waitsForPromise -> atom.packages.activatePackage('autocomplete-emojis')
+    waitsForPromise -> atom.packages.activatePackage('autocomplete-emojis-plus')
 
     runs ->
-      provider = atom.packages.getActivePackage('autocomplete-emojis').mainModule.getProvider()
+      provider = atom.packages.getActivePackage('autocomplete-emojis-plus').mainModule.getProvider()
 
     waitsFor -> Object.keys(provider.properties).length > 0
 
   Object.keys(packagesToTest).forEach (packageLabel) ->
     describe "#{packageLabel} files", ->
       beforeEach ->
-        atom.config.set('autocomplete-emojis.enableUnicodeEmojis', true)
-        atom.config.set('autocomplete-emojis.enableMarkdownEmojis', true)
+        atom.config.set('autocomplete-emojis-plus.enableUnicodeEmojis', true)
+        atom.config.set('autocomplete-emojis-plus.enableMarkdownEmojis', true)
 
         waitsForPromise -> atom.packages.activatePackage(packagesToTest[packageLabel].name)
         waitsForPromise -> atom.workspace.open(packagesToTest[packageLabel].file)
@@ -60,7 +60,7 @@ describe "Emojis autocompletions", ->
         editor.setCursorBufferPosition([0, 3])
         completions = getCompletions()
         expect(completions.length).toBe 96
-        expect(completions[ 0].text).toBe '😄'
+        expect(completions[ 0].text).toBe '😏'
         expect(completions[ 0].replacementPrefix).toBe ':sm'
         expect(completions[49].text).toBe ':smirk:'
         expect(completions[49].replacementPrefix).toBe ':sm'
@@ -96,8 +96,8 @@ describe "Emojis autocompletions", ->
         expect(completions[1].rightLabelHTML).toMatch /smile\.png/
 
       it "autocompletes unicode emojis with a proper prefix", ->
-        atom.config.set('autocomplete-emojis.enableUnicodeEmojis', true)
-        atom.config.set('autocomplete-emojis.enableMarkdownEmojis', false)
+        atom.config.set('autocomplete-emojis-plus.enableUnicodeEmojis', true)
+        atom.config.set('autocomplete-emojis-plus.enableMarkdownEmojis', false)
 
         editor.setText """
           :sm
@@ -105,25 +105,26 @@ describe "Emojis autocompletions", ->
         editor.setCursorBufferPosition([0, 3])
         completions = getCompletions()
         expect(completions.length).toBe 49
-        expect(completions[ 0].text).toBe '😄'
+        expect(completions[ 0].text).toBe '😏'
         expect(completions[ 0].replacementPrefix).toBe ':sm'
 
       it "autocompletes markdown emojis with a proper prefix", ->
-        atom.config.set('autocomplete-emojis.enableUnicodeEmojis', false)
-        atom.config.set('autocomplete-emojis.enableMarkdownEmojis', true)
+        atom.config.set('autocomplete-emojis-plus.enableUnicodeEmojis', false)
+        atom.config.set('autocomplete-emojis-plus.enableMarkdownEmojis', true)
 
         editor.setText """
           :sm
         """
         editor.setCursorBufferPosition([0, 3])
         completions = getCompletions()
-        expect(completions.length).toBe 47
+        expect(completions.length).toBe 48
         expect(completions[ 0].text).toBe ':smirk:'
         expect(completions[ 0].replacementPrefix).toBe ':sm'
 
       it "autocompletes no emojis", ->
-        atom.config.set('autocomplete-emojis.enableUnicodeEmojis', false)
-        atom.config.set('autocomplete-emojis.enableMarkdownEmojis', false)
+        atom.config.set('autocomplete-emojis-plus.enableUnicodeEmojis', false)
+        atom.config.set('autocomplete-emojis-plus.enableMarkdownEmojis', false)
+        atom.config.set('autocomplete-emojis-plus.enableAsciiEmojis', false)
 
         editor.setText """
           :sm
@@ -132,7 +133,7 @@ describe "Emojis autocompletions", ->
         completions = getCompletions()
         expect(completions.length).toBe 0
 
-  describe 'when the autocomplete-emojis:showCheatSheet event is triggered', ->
+  describe 'when the autocomplete-emojis-plus:showCheatSheet event is triggered', ->
     workspaceElement = null
     beforeEach ->
       workspaceElement = atom.views.getView(atom.workspace)
@@ -140,6 +141,6 @@ describe "Emojis autocompletions", ->
     it 'opens Emoji Cheat Sheet in browser', ->
       spyOn emojiCheatSheet, 'openUrlInBrowser'
 
-      atom.commands.dispatch workspaceElement, 'autocomplete-emojis:show-cheat-sheet'
+      atom.commands.dispatch workspaceElement, 'autocomplete-emojis-plus:show-cheat-sheet'
 
       expect(emojiCheatSheet.openUrlInBrowser).toHaveBeenCalledWith 'http://www.emoji-cheat-sheet.com/'
