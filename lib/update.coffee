@@ -11,7 +11,7 @@ requestOptions =
 
 module.exports =
 
-  updateData: ->
+  updateDefault: ->
 
     request requestOptions, (error, response, items) ->
       if error?
@@ -28,8 +28,8 @@ module.exports =
           for alias in item.aliases
             properties[alias] =
               emoji: item.emoji
-              # description: item.description
-              # tags: item.tags if item.tags?.length > 1
+              description: item.description
+              tags: item.tags if item.tags?.length > 1
 
       fs.writeFileSync(path.join(__dirname, 'properties.json'), "#{JSON.stringify(properties, null, 0)}\n")
       return true
