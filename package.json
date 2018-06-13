@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/atom/autocomplete-emojis"
   },
+  "scripts": {
+    "test": "grunt test"
+  },
   "license": "MIT",
   "engines": {
     "atom": ">=0.189.0 <2.0.0"
