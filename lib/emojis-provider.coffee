@@ -10,6 +10,8 @@ module.exports =
   emojiFolder: 'atom://autocomplete-emojis-plus/node_modules/emoji-images/pngs'
   properties: {}
   keys: []
+  properties0: {}
+  keys0: []
 
   loadProperties: ->
     fs.readFile path.resolve(__dirname, '..', 'properties.json'), (error, content) =>
@@ -17,6 +19,14 @@ module.exports =
 
       @properties = JSON.parse(content)
       @keys = Object.keys(@properties)
+
+    fs.readFile path.resolve(__dirname, '..', 'properties0.json'), (error, content) =>
+      return if error
+
+      @properties0 = JSON.parse(content)
+      @keys0 = Object.keys(@properties0)
+      # console.log(@properties0[word])
+
 
   getSuggestions: ({editor, bufferPosition}) ->
     prefix = @getPrefix(editor, bufferPosition)
@@ -35,7 +45,11 @@ module.exports =
     if atom.config.get('autocomplete-emojis-plus.enableMarkdownEmojis')
       markdownEmojis = @getMarkdownEmojiSuggestions(prefix, replacementPrefix)
 
-    return unicodeEmojis.concat(markdownEmojis)
+    asciiEmojiSuggestions = []
+    if atom.config.get('autocomplete-emojis-plus.enableAsciiEmojis')
+      asciiEmojiSuggestions = @getAsciiEmojiSuggestion(prefix)
+
+    return unicodeEmojis.concat(markdownEmojis).concat(asciiEmojiSuggestions)
 
   getPrefix: (editor, bufferPosition) ->
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
@@ -62,4 +76,13 @@ module.exports =
         text: word
         replacementPrefix: replacementPrefix || prefix
         rightLabelHTML: emojiImageElement
+      }
+
+  getAsciiEmojiSuggestion: (prefix) ->
+    words = fuzzaldrin.filter(@keys0, prefix.slice(1))
+    for word in words
+      {
+        text: @properties0[word].asciiEmoji
+        replacementPrefix: prefix
+        rightLabel: word
       }
