@@ -3,4 +3,5 @@
 
 const update = require('./lib/update');
 
-update.updateDefault(); 
+update.updateDefault();
+update.updateAscii();
