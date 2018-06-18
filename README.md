@@ -1,11 +1,35 @@
-# autocomplete+ emojis suggestions [![Build Status](https://travis-ci.org/atom/autocomplete-emojis.svg?branch=master)](https://travis-ci.org/atom/autocomplete-emojis)
-
-[View the changelog](https://github.com/atom/autocomplete-emojis/blob/master/CHANGELOG.md)
-
-Adds unicode emoji (like 😄) and markdown emoji (like ```:smile:```) autocompletion to autocomplete-plus.
+# Autocomplete Emojis Plus
 
 ![autocomplete-emojis](https://github.com/atom/autocomplete-emojis/blob/master/doc/images/atom-autocomplete-emojis.gif?raw=true)
 
+![badge]()
+![badge]()
+
+> Adds unicode emoji (like 😄), markdown emoji (like ```:smile:```) and ascii emoji (like ```（ ^_^）```) autocompletion to autocomplete-plus.
+
+This is a long description.
+
+## Security
+
+### Any optional sections
+
+## Background
+
+### Any optional sections
+
+## Install
+
+This module depends upon a knowledge of [Markdown]().
+
+```
+```
+
+### Any optional sections
+
+## Usage
+
+```
+```
 
 ## Features
 
@@ -34,9 +58,23 @@ Please note that this package shows emoji suggestions in the scopes below.
 * .source.emojicode
 
 
+## Contribute
+
+See [the contribute file](contribute.md)!
+
+PRs accepted.
+
+Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
+
+
 ## Acknowledgements
 
 * [autocomplete-plus](https://atom.io/packages/autocomplete-plus) and
   [its document of the provider API](https://github.com/atom/autocomplete-plus/wiki/Provider-API)
   inspired and helped me a lot to create this package
 * [gemoji](https://github.com/github/gemoji) gives [a JSON file](https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json) for unicode emojis
+
+
+## License
+
+[MIT © Giacomo Rossetto.](../LICENSE)
