@@ -3,5 +3,4 @@
 
 const update = require('./lib/update');
 
-update.updateDefault();
-update.updateAscii();
+update.updateEmoji()
