@@ -24,6 +24,8 @@ apm install
 
 ## Features
 
+> TODO: Improve feature set
+
 * Shows unicode and markdown emojis as suggestions when typing ```:``` and a word<br>
 　![smiley](https://github.com/atom/autocomplete-emojis/blob/master/doc/images/atom-autocomplete-emojis-smiley.png?raw=true)
 * Shows only markdown emojis when typing ```::``` and a word<br>
