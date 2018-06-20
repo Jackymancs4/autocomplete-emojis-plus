@@ -2,34 +2,25 @@
 
 ![autocomplete-emojis](https://github.com/atom/autocomplete-emojis/blob/master/doc/images/atom-autocomplete-emojis.gif?raw=true)
 
-![badge]()
-![badge]()
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+[![apm](https://img.shields.io/apm/v/autocomplete-emoj-plus.svg)](https://atom.io/packages/autocomplete-emoj-plus)
 
 > Adds unicode emoji (like 😄), markdown emoji (like ```:smile:```) and ascii emoji (like ```（ ^_^）```) autocompletion to autocomplete-plus.
 
 This is a long description.
 
-## Security
-
-### Any optional sections
-
-## Background
-
-### Any optional sections
-
 ## Install
 
 This module depends upon a knowledge of [Markdown]().
 
+```markdown
+apm install
 ```
-```
-
-### Any optional sections
 
 ## Usage
 
-```
-```
+> TODO: Add.. mmm.. something.
 
 ## Features
 
@@ -56,7 +47,6 @@ Please note that this package shows emoji suggestions in the scopes below.
 * .comment
 * .string
 * .source.emojicode
-
 
 ## Contribute
 
