@@ -8,7 +8,7 @@
 
 > Adds unicode emoji (like 😄), markdown emoji (like ```:smile:```) and ascii emoji (like ```（ ^_^）```) autocompletion to autocomplete-plus.
 
-This is a long description.
+> TODO: Add a description
 
 ## Install
 
@@ -56,8 +56,13 @@ PRs accepted.
 
 Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
+## TODOs
+
+> TODO: Add project TODOs
 
 ## Acknowledgements
+
+> TODO: Add proper acknowledgements
 
 * [autocomplete-plus](https://atom.io/packages/autocomplete-plus) and
   [its document of the provider API](https://github.com/atom/autocomplete-plus/wiki/Provider-API)
