@@ -1,4 +1,4 @@
-Copyright (c) 2014 Ikuo Terado
+Copyright (c) 2018 Giacomo Rossetto
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
